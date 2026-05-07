@@ -1,0 +1,96 @@
+{
+  "theme": "Archetype 5: Jewel & Luxury (Modified for Dark Editorial Elegance)",
+  "mode": "dark",
+  "mood": "Cinematic, extremely elegant, luxury fashion campaign, Apple-level minimalism, deeply emotional.",
+  "colors": {
+    "background": "#0A0A0A",
+    "surface": "#141414",
+    "primary": "#E5D3B3",
+    "primary_hover": "#D4C2A1",
+    "secondary": "#2A2A2A",
+    "text_primary": "#F9F8F6",
+    "text_secondary": "#A1A1AA",
+    "text_muted": "#52525B",
+    "border": "#27272A",
+    "overlay": "rgba(0,0,0,0.5)"
+  },
+  "typography": {
+    "fonts": {
+      "heading": "Cormorant Garamond",
+      "body": "Manrope",
+      "mono": "JetBrains Mono"
+    },
+    "scale": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl font-light tracking-tighter",
+      "h2": "text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight",
+      "h3": "text-2xl sm:text-3xl font-light",
+      "h4": "text-xl sm:text-2xl font-light",
+      "body": "text-base leading-relaxed tracking-wide",
+      "overline": "text-xs uppercase tracking-[0.2em] font-semibold"
+    }
+  },
+  "spacing_and_layout": {
+    "strategy": "Cinematic whitespace, generous padding, bento grid for details, full-screen immersive sections.",
+    "grid": "grid-cols-1 md:grid-cols-12 gap-8 md:gap-16",
+    "container": "max-w-7xl mx-auto px-6 sm:px-12 md:px-20",
+    "section_padding": "py-24 md:py-32 lg:py-48"
+  },
+  "components": {
+    "buttons": "Minimalist outline or soft solid with primary color. Rounded-none or extreme subtle rounding (rounded-sm). 1px border. Fluid hover transitions.",
+    "cards": "Cardless or pure glassmorphism. Use 1px border-white/10 for definition. Generous internal padding (p-8 to p-12).",
+    "inputs": "Shadcn UI Input customized: stark minimal dark mode styling, subtle border, no default Vercel glow.",
+    "navigation": "Transparent floating navigation with Crystal Glassmorphism (backdrop-blur-xl bg-black/40) on scroll. 1px border-white/10 on the bottom."
+  },
+  "motion": {
+    "scroll": "Lenis for smooth, momentum-based scrolling. Mandatory for premium feel.",
+    "animations": "Framer motion for subtle staggered fade-ins (translate-y-4 to 0). Slow transitions (0.6s to 1s ease-out). Very subtle parallax on hero image."
+  },
+  "media": {
+    "treatment": "Soft grain texture overlay globally (pointer-events-none opacity-[0.03]). Images should be overlaid with max bg-black/40 to preserve contrast while allowing imagery to breathe.",
+    "image_urls": [
+      {
+        "category": "hero",
+        "description": "Cinematic couple portrait for hero section",
+        "url": "https://images.unsplash.com/photo-1698833994525-c2c0c02601fc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwxfHx2b2d1ZSUyMGVkaXRvcmlhbCUyMGNvdXBsZXxlbnwwfHx8fDE3NzgxNzI1NjJ8MA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "story",
+        "description": "Editorial couple walking in grass for Nasza Historia",
+        "url": "https://images.unsplash.com/photo-1696343995156-3c686d3fc64b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwyfHx2b2d1ZSUyMGVkaXRvcmlhbCUyMGNvdXBsZXxlbnwwfHx8fDE3NzgxNzI1NjJ8MA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "details",
+        "description": "Zamek Moszna reception high-end generated view",
+        "url": "https://static.prod-images.emergentagent.com/jobs/f06a9f9c-d82b-43ef-be36-a164b4102429/images/c85528aed0ed1ecd8e474f7d2c577626a733b433833ad493a9650699bf0326e8.png"
+      },
+      {
+        "category": "details",
+        "description": "Zabrze church architecture fallback",
+        "url": "https://images.unsplash.com/photo-1666564424049-26cab5618df4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MTN8MHwxfHNlYXJjaHwyfHxoaXN0b3JpYyUyMGNhc3RsZSUyMGV4dGVyaW9yfGVufDB8fHx8MTc3ODE3MjU4MHww&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "gallery",
+        "description": "Luxury champagne glasses macro",
+        "url": "https://static.prod-images.emergentagent.com/jobs/f06a9f9c-d82b-43ef-be36-a164b4102429/images/bd9368a061bbda47cfb288ad9c98ec421dbd4087be5f4a76bf33f9e5dcd6798f.png"
+      },
+      {
+        "category": "gallery",
+        "description": "Wedding rings cinematic",
+        "url": "https://images.unsplash.com/photo-1662833833862-4f5328756afa?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHwzfHxjaW5lbWF0aWMlMjB3ZWRkaW5nJTIwZGV0YWlsc3xlbnwwfHx8fDE3NzgxNzI1NjJ8MA&ixlib=rb-4.1.0&q=85"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Install and use 'lenis' for smooth momentum scrolling (crucial for luxury feel).",
+    "Install and use 'framer-motion' for scroll-triggered staggered fade-ups.",
+    "Install 'lucide-react' for minimal, sharp icons.",
+    "Import and use Cormorant Garamond (headings) and Manrope (body) from Google Fonts.",
+    "Use pure HTML/Tailwind for structural layout instead of standard Shadcn Card components to avoid the 'SaaS template' look. Use Shadcn primarily for form interactions (RSVP inputs, selects).",
+    "All copy/text must be in Polish.",
+    "Include a global subtle SVG noise/grain overlay (fixed, z-50, pointer-events-none, mix-blend-overlay, opacity-3) to give an authentic film texture.",
+    "Use data-testid on all interactive elements (buttons, inputs) to ensure testability.",
+    "Create a countdown timer targeting July 19, 2026.",
+    "The QR Section for Kahoot should visually integrate into the luxury dark theme (e.g., wrap it in an elegant bordered glass pane, not just a raw white square).",
+    "Avoid standard center-everything templates; use asymmetric bento layouts, staggered imagery, and massive typography."
+  ]
+}
