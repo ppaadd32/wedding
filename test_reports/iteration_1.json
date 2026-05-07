@@ -1,0 +1,37 @@
+{
+  "summary": "First iteration. Backend (8/8 pytest) and Frontend (all 8 features) tested end-to-end against the Patrycja & Adrian wedding site. All critical flows working: API greeting, RSVP create (yes/no), validation 422s, GET list (no _id), stats; Hero, Countdown, Schedule interactivity, FAQ accordion, RSVP toggle/submit (POST 200 + success state visible in PL: 'Dziękujemy! Do zobaczenia 19 lipca.'), Kahoot QR (rendered as SVG with paths), nav anchor scroll.",
+  "backend_issues": {
+    "critical": [],
+    "minor": []
+  },
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "FAQ accordion", "issues": ["FAQ button has no aria-expanded attribute — works visually but lacks a11y semantics. Recommend adding aria-expanded and aria-controls for screen-reader support."]}
+    ]
+  },
+  "test_report_links": [
+    "/app/backend/tests/test_rsvp_api.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [
+    "(Optional / minor) Add aria-expanded toggling on FAQ buttons for accessibility."
+  ],
+  "critical_code_review_comments": [
+    "server.py: created_at is stored as ISO string in Mongo and re-parsed on GET; consider storing as native BSON datetime to leverage indexing/sorting natively (current sort on string ISO works because lexicographic order matches chronological for UTC ISO).",
+    "server.py: no rate limiting / duplicate-prevention on POST /api/rsvp — anyone could spam submissions; acceptable for MVP.",
+    "Backend uses deprecated FastAPI @app.on_event('shutdown'); migrate to lifespan handler in future cleanup.",
+    "FAQ component should toggle aria-expanded for a11y."
+  ],
+  "updated_files": [
+    "/app/backend/tests/test_rsvp_api.py (new)"
+  ],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "test_credentials": "N/A — no auth on this site",
+  "seed_data_creation": "Created 4 RSVPs prefixed TEST_ during pytest+UI runs (TEST_Anna Kowalska, TEST_Marek Nowak, TEST_UI Anna). Safe to leave or purge.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend tests live at /app/backend/tests/test_rsvp_api.py and run cleanly with `pytest backend/tests/ -v`. All RSVP API contract endpoints validated (root, POST /api/rsvp yes+no, validation 422s, GET list w/o _id, GET stats). Frontend smoke covered: hero-title, countdown-section, schedule-item-N click updates schedule-detail, faq-item-N expands, rsvp form (toggle yes/no hides guests+dietary, submit -> rsvp-success), kahoot-qr is rendered as a top-level SVG (data-testid is on the svg root, so inner_html shows <path> children — that is correct and not a bug).",
+  "rca of the issue": "No bugs found."
+}
