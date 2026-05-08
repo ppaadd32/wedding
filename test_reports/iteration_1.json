@@ -1,5 +1,5 @@
 {
-  "summary": "First iteration. Backend (8/8 pytest) and Frontend (all 8 features) tested end-to-end against the Patrycja & Adrian wedding site. All critical flows working: API greeting, RSVP create (yes/no), validation 422s, GET list (no _id), stats; Hero, Countdown, Schedule interactivity, FAQ accordion, RSVP toggle/submit (POST 200 + success state visible in PL: 'Dziękujemy! Do zobaczenia 19 lipca.'), Kahoot QR (rendered as SVG with paths), nav anchor scroll.",
+  "summary": "First iteration. Backend (8/8 pytest) and Frontend (all 8 features) tested end-to-end against the Agnieszka & Paweł wedding site. All critical flows working: API greeting, RSVP create (yes/no), validation 422s, GET list (no _id), stats; Hero, Countdown, Schedule interactivity, FAQ accordion, RSVP toggle/submit (POST 200 + success state visible in PL: 'Dziękujemy! Do zobaczenia 19 lipca.'), Kahoot QR (rendered as SVG with paths), nav anchor scroll.",
   "backend_issues": {
     "critical": [],
     "minor": []

@@ -1,7 +1,7 @@
-# PRD — Patrycja & Adrian Wedding Website
+# PRD — Agnieszka & Paweł Wedding Website
 
 ## Original Problem Statement
-Ultra-premium cinematic wedding website for Patrycja & Adrian. NOT a generic wedding template. Must feel like a luxury fashion campaign — Vogue editorial × Apple minimalism × cinematic storytelling. Black/ivory/champagne palette, refined editorial typography (Cormorant Garamond + Manrope), oversized headings, cinematic whitespace, soft grain texture, glassmorphism.
+Ultra-premium cinematic wedding website for Agnieszka & Paweł. NOT a generic wedding template. Must feel like a luxury fashion campaign — Vogue editorial × Apple minimalism × cinematic storytelling. Black/ivory/champagne palette, refined editorial typography (Cormorant Garamond + Manrope), oversized headings, cinematic whitespace, soft grain texture, glassmorphism.
 
 ## User Choices (collected 2026-02)
 - Date: 19 July 2026, 15:00
@@ -29,7 +29,7 @@ Ultra-premium cinematic wedding website for Patrycja & Adrian. NOT a generic wed
 - Global SVG grain overlay
 - Transparent floating navigation w/ glassmorphism on scroll
 - Sections (single page):
-  1. **Hero** — fullscreen parallax, oversized italic serif "Patrycja & Adrian", scroll indicator
+  1. **Hero** — fullscreen parallax, oversized italic serif "Agnieszka & Paweł", scroll indicator
   2. **Countdown** — live counter to 19.07.2026 15:00
   3. **Story** — 4-milestone timeline w/ sticky editorial portrait
   4. **Details** — two cards (church + Zamek Moszna) + dress code/transport/duration

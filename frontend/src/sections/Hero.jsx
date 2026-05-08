@@ -3,7 +3,7 @@ import { useRef } from "react";
 import { ArrowDown } from "lucide-react";
 
 const HERO_IMG =
-    "https://images.unsplash.com/photo-1698833994525-c2c0c02601fc?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1Mjh8MHwxfHNlYXJjaHwxfHx2b2d1ZSUyMGVkaXRvcmlhbCUyMGNvdXBsZXxlbnwwfHx8fDE3NzgxNzI1NjJ8MA&ixlib=rb-4.1.0&q=85";
+    "/images/weddingBack.png";
 
 export default function Hero() {
     const ref = useRef(null);
@@ -28,7 +28,7 @@ export default function Hero() {
             >
                 <img
                     src={HERO_IMG}
-                    alt="Patrycja & Adrian"
+                    alt="Agnieszka & Paweł"
                     className="w-full h-full object-cover"
                 />
             </motion.div>
@@ -78,7 +78,7 @@ export default function Hero() {
                             }}
                             className="block"
                         >
-                            Patrycja
+                            Agnieszka
                         </motion.span>
                         <motion.span
                             initial={{ opacity: 0, scale: 0.7 }}
@@ -98,7 +98,7 @@ export default function Hero() {
                             }}
                             className="block"
                         >
-                            Adrian
+                            Paweł
                         </motion.span>
                     </h1>
 

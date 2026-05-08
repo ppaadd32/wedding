@@ -54,7 +54,7 @@ class RSVP(BaseModel):
 # ---------- Routes ----------
 @api_router.get("/")
 async def root():
-    return {"message": "Patrycja & Adrian — 19.07.2026"}
+    return {"message": "Agnieszka & Paweł — 19.07.2026"}
 
 
 @api_router.post("/rsvp", response_model=RSVP)

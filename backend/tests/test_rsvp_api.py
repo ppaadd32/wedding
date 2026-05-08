@@ -1,4 +1,3 @@
-"""Backend API tests for Patrycja & Adrian wedding site."""
 import os
 import pytest
 import requests
@@ -20,7 +19,7 @@ def test_root_greeting(client):
     assert r.status_code == 200
     data = r.json()
     assert "message" in data
-    assert "Patrycja" in data["message"] and "Adrian" in data["message"]
+    assert "Agnieszka" in data["message"] and "Paweł" in data["message"]
 
 
 # ---------- RSVP Create (yes) ----------

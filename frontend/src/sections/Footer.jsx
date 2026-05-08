@@ -26,7 +26,7 @@ export default function Footer() {
                         P <span className="text-champagne">&</span> A
                     </div>
                     <p className="text-ivory/35 text-xs uppercase tracking-[0.3em] text-center">
-                        Z miłością · Patrycja & Adrian · Moszna 2026
+                        Z miłością · Agnieszka & Paweł · Moszna 2026
                     </p>
                     <a
                         href="#top"
