@@ -54,7 +54,7 @@ export default function Hero() {
                 </div>
             </div>
 
-            <div className="absolute inset-0 z-10 flex items-center justify-center px-6">
+            <div className="absolute inset-0 z-10 flex items-center justify-center px-8">
                 <div className="text-center">
                     <motion.div
                         initial={{ opacity: 0, y: 14 }}
@@ -114,10 +114,10 @@ export default function Hero() {
                         <a
                             href="#rsvp"
                             data-testid="hero-cta-rsvp"
-                            className="group relative inline-flex items-center gap-4 px-10 py-4 border border-champagne/70 text-champagne text-[12px] uppercase tracking-[0.42em] hover:bg-champagne hover:text-ink transition-all duration-700"
+                            className="group relative inline-flex items-center gap-4 px-12 py-5 border border-champagne/70 text-champagne text-[14px] uppercase tracking-[0.42em] hover:bg-champagne hover:text-ink transition-all duration-700"
                         >
                             <span>Potwierdź obecność</span>
-                            <span className="w-7 h-[1px] bg-current group-hover:w-12 transition-all duration-500" />
+                            <span className="w-7 h-[2px] bg-current group-hover:w-12 transition-all duration-500" />
                         </a>
                     </motion.div>
                 </div>
@@ -141,7 +141,7 @@ export default function Hero() {
                         className="flex flex-col items-center gap-3 text-ivory/60 hover:text-champagne transition-colors"
                         data-testid="hero-scroll-indicator"
                     >
-                        <span className="overline text-[11px]">Przewiń</span>
+                        <span className="overline text-[13px]">Przewiń</span>
                         <ArrowDown size={20} />
                     </motion.a>
 
