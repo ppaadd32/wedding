@@ -31,11 +31,11 @@ export default function Navigation() {
                     : "bg-transparent border-b border-transparent"
             }`}
         >
-            <div className="container-luxe flex items-center justify-between h-16 md:h-20">
+            <div className="container-luxe flex items-center justify-between h-20 md:h-24">
                 <a
                     href="#top"
                     data-testid="nav-logo"
-                    className="font-serif text-lg md:text-xl tracking-[0.3em] text-ivory hover:text-champagne transition-colors"
+                    className="font-serif text-2xl md:text-3xl tracking-[0.3em] text-ivory hover:text-champagne transition-colors"
                 >
                     P <span className="text-champagne">&</span> A
                 </a>
@@ -46,7 +46,7 @@ export default function Navigation() {
                             key={l.href}
                             href={l.href}
                             data-testid={`nav-link-${l.label.toLowerCase()}`}
-                            className="text-[11px] uppercase tracking-[0.28em] text-ivory/70 hover:text-champagne transition-colors"
+                            className="text-[14px] uppercase tracking-[0.28em] text-ivory/70 hover:text-champagne transition-colors"
                         >
                             {l.label}
                         </a>
@@ -56,7 +56,7 @@ export default function Navigation() {
                 <a
                     href="#rsvp"
                     data-testid="nav-rsvp-cta"
-                    className="hidden md:inline-flex items-center px-5 py-2.5 text-[11px] uppercase tracking-[0.3em] border border-champagne/60 text-champagne hover:bg-champagne hover:text-ink transition-all duration-500"
+                    className="hidden md:inline-flex items-center px-5 py-2.5 text-[14px] uppercase tracking-[0.3em] border border-champagne/60 text-champagne hover:bg-champagne hover:text-ink transition-all duration-500"
                 >
                     RSVP
                 </a>
@@ -67,7 +67,7 @@ export default function Navigation() {
                     onClick={() => setOpen((v) => !v)}
                     className="md:hidden text-ivory"
                 >
-                    {open ? <X size={22} /> : <Menu size={22} />}
+                    {open ? <X size={28} /> : <Menu size={28} />}                    
                 </button>
             </div>
 

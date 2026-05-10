@@ -4,33 +4,34 @@ import { Plus, Minus } from "lucide-react";
 
 const items = [
     {
-        q: "Czy mogę przyjść z osobą towarzyszącą?",
-        a: "Tak — w formularzu RSVP możesz dopisać osobę towarzyszącą. Prosimy o potwierdzenie do 10 czerwca 2026.",
+        q: "Jaki obowiązuje dress code?",
+        a: "Black Tie Optional — mile widziane eleganckie stylizacje wieczorowe w odcieniach granatu, chłodnego błękitu oraz srebra. Garnitury, smokingi i długie suknie będą idealnie wpisywać się w klimat uroczystości.",
     },
     {
-        q: "Czy zapewniacie transport z Zabrza do Moszny?",
-        a: "Oczywiście. Dedykowany autokar odjeżdża sprzed kościoła o godzinie 16:00 i wraca z Moszny o 03:00 oraz 05:00.",
+        q: "Czy na miejscu dostępny jest parking?",
+        a: "Tak. Dla wszystkich gości dostępny będzie bezpłatny parking bezpośrednio przy miejscu przyjęcia. Szczegóły dojazdu znajdziecie w sekcji lokalizacja.",
     },
     {
-        q: "Jaki jest dress code?",
-        a: "Black Tie Optional. Polecamy odcienie czerni, kremu, głębokiego granatu i klejnotowych zieleni / burgundu.",
+        q: "Czy będą dostępne opcje wegetariańskie lub bezglutenowe?",
+        a: "Oczywiście. Nasz szef kuchni przygotuje pełnowartościowe alternatywy dopasowane do preferencji żywieniowych. Prosimy o zaznaczenie odpowiedniej informacji w formularzu RSVP.",
     },
     {
-        q: "Czy są opcje wegetariańskie / bezglutenowe?",
-        a: "Tak. Nasz szef kuchni przygotuje pełnowartościowe alternatywy. Zaznacz preferencje w RSVP.",
+        q: "Do kiedy prosimy o potwierdzenie obecności?",
+        a: "Będziemy wdzięczni za potwierdzenie obecności najpóźniej do 1 czerwca 2026 roku poprzez formularz RSVP dostępny na stronie.",
     },
     {
-        q: "Czy mogę przyjechać z dzieckiem?",
-        a: "Wesele jest wydarzeniem dla dorosłych — pozwólcie sobie na noc tylko we dwoje. Dla najmłodszych gości (z najbliższej rodziny) zorganizujemy oddzielną opiekę po wcześniejszym uzgodnieniu.",
+        q: "Jak wygląda kwestia prezentów?",
+        a: "Wasza obecność będzie dla nas największym prezentem. Jeśli jednak chcielibyście podarować nam coś więcej, będziemy wdzięczni za symboliczny wkład w naszą podróż poślubną.",
     },
     {
-        q: "Czy będę mógł zostać na noc w zamku?",
-        a: "Limitowana liczba pokoi w Zamku Moszna jest dostępna pod kodem rezerwacyjnym PA1907. Polecamy rezerwację jak najwcześniej.",
+        q: "Czy podczas wesela będą wykonywane zdjęcia i nagrania?",
+        a: "Tak. Chcemy zachować te chwile na lata, dlatego podczas uroczystości obecny będzie fotograf oraz operator wideo.",
     },
     {
-        q: "Lista prezentów?",
-        a: "Waszej obecności nie zastąpi nic. Jeśli czujecie potrzebę gestu — będziemy wdzięczni za wkład w naszą podróż poślubną.",
+        q: "Czy mogę robić zdjęcia telefonem podczas ceremonii?",
+        a: "Będzie nam bardzo miło, jeśli podczas ceremonii odłożycie telefony i przeżyjecie ten moment razem z nami. O wszystkie wspomnienia zadba nasz fotograf.",
     },
+    
 ];
 
 function Item({ q, a, idx }) {
