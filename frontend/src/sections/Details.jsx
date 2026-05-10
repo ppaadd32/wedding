@@ -76,9 +76,9 @@ export default function Details() {
                     <Card
                         dataId="details-ceremony"
                         tag="Ceremonia"
-                        title="Niepokalanego Serca NMP"
-                        where="ul. Wolności, Zabrze"
-                        time="15:00 — 19 lipca 2026"
+                        title="Kościół Niepokalanego Serca NMP"
+                        where="ul. Franciszkańska 1, Zabrze"
+                        time="14:00 — 19 lipca 2026"
                         image={CHURCH_IMG}
                         mapHref="https://maps.google.com/?q=Ko%C5%9Bci%C3%B3%C5%82+Niepokalanego+Serca+NMP+Zabrze"
                     />
@@ -86,8 +86,8 @@ export default function Details() {
                         dataId="details-reception"
                         tag="Wesele"
                         title="Zamek Moszna"
-                        where="Moszna 1, 47-370 Zielina"
-                        time="17:30 — do świtu"
+                        where="Zamkowa 1, Moszna"
+                        time="16:00 — 4:00"
                         image={MOSZNA_IMG}
                         mapHref="https://maps.google.com/?q=Zamek+Moszna"
                     />
@@ -120,19 +120,6 @@ export default function Details() {
                             </div>
                             <p className="text-ivory/55 text-sm mt-3">
                                 Pełna noc cinematograficznych wspomnień.
-                            </p>
-                        </div>
-                        <div>
-                            <MapPin
-                                className="mx-auto text-champagne mb-4"
-                                size={20}
-                            />
-                            <div className="overline mb-2">Transport</div>
-                            <div className="font-serif text-2xl md:text-3xl text-ivory">
-                                Zorganizowany
-                            </div>
-                            <p className="text-ivory/55 text-sm mt-3">
-                                Autokar Zabrze → Moszna o 16:00.
                             </p>
                         </div>
                     </div>

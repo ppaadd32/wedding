@@ -4,23 +4,18 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const program = [
     {
-        time: "14:30",
-        title: "Przyjęcie gości",
-        text: "Zbiórka przy kościele — szampan powitalny, ciche szepty, ostatnie poprawki.",
-    },
-    {
-        time: "15:00",
+        time: "14:00",
         title: "Ceremonia zaślubin",
         text: "Uroczysta msza w Kościele Niepokalanego Serca NMP w Zabrzu.",
     },
     {
         time: "16:00",
-        title: "Transfer do Moszny",
+        title: "Powitanie na sali",
         text: "Dedykowany autokar zabiera Was w godzinną podróż przez śląskie krajobrazy.",
     },
     {
-        time: "17:30",
-        title: "Aperitif na zamkowym tarasie",
+        time: "17:00",
+        title: "Pierwszy taniec",
         text: "Krzemienny taras Zamku Moszna, kieliszki schłodzone, fotografia na zachód słońca.",
     },
     {
@@ -29,23 +24,13 @@ const program = [
         text: "Pięciodaniowe menu degustacyjne w Sali Lustrzanej — sztuka kulinarna w czystej formie.",
     },
     {
-        time: "21:00",
-        title: "Pierwszy taniec",
-        text: "Świece, kwartet smyczkowy, jedno słowo: razem.",
-    },
-    {
         time: "23:30",
-        title: "Tort & toast",
+        title: "Tort",
         text: "Ceremonia krojenia, fajerwerki nad zamkiem, łza wzruszenia.",
     },
     {
-        time: "02:00",
-        title: "Nocna uczta",
-        text: "Stół z polskimi przysmakami i wybór koktajli autorskich.",
-    },
-    {
         time: "04:00",
-        title: "Świt nad Mosznem",
+        title: "Świt nad Moszną",
         text: "Mgła, kawa, ostatni taniec. Zostają tylko najwytrwalsi.",
     },
 ];

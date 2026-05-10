@@ -5,7 +5,7 @@ import { Plus, Minus } from "lucide-react";
 const items = [
     {
         q: "Czy mogę przyjść z osobą towarzyszącą?",
-        a: "Tak — w formularzu RSVP możesz dopisać osobę towarzyszącą. Prosimy o potwierdzenie do 15 maja 2026.",
+        a: "Tak — w formularzu RSVP możesz dopisać osobę towarzyszącą. Prosimy o potwierdzenie do 10 czerwca 2026.",
     },
     {
         q: "Czy zapewniacie transport z Zabrza do Moszny?",

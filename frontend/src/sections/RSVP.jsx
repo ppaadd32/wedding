@@ -75,7 +75,7 @@ export default function RSVP() {
                         <p className="text-ivory/65 text-base md:text-lg leading-relaxed max-w-md">
                             Prosimy o potwierdzenie obecności do{" "}
                             <span className="text-champagne">
-                                15 maja 2026
+                                10 czerwca 2026
                             </span>
                             . Wasze odpowiedzi pomogą nam dopiąć ostatni
                             detal — kolacji w Sali Lustrzanej.
