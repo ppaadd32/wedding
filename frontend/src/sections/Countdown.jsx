@@ -65,7 +65,7 @@ export default function Countdown() {
 
                 <Reveal delay={2}>
                     <p className="text-center text-ivory/50 text-sm tracking-[0.3em] uppercase mt-16">
-                        19 — 07 — 2026 · 15:00
+                        19 — 07 — 2026 · 14:00
                     </p>
                 </Reveal>
             </div>
