@@ -137,6 +137,10 @@
             transparent
         );
     }
+    .hero-cinematic {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+    }
 }
 
 /* Hide scrollbar in some areas */

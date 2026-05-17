@@ -1,6 +1,11 @@
 import { useState } from "react";
-import { Reveal } from "@/components/Reveal";
 import { motion, AnimatePresence } from "framer-motion";
+import {
+    ActHeader,
+    ScrollShift,
+    actColRight,
+    itemMotion,
+} from "@/components/ScrollMotion";
 
 const program = [
     {
@@ -43,67 +48,79 @@ export default function Schedule() {
         <section
             id="plan"
             data-testid="schedule-section"
-            className="section-pad relative bg-ink2"
+            className="section-pad relative overflow-hidden bg-ink2"
         >
             <div className="container-luxe">
-                <Reveal>
-                    <div className="text-center mb-16 md:mb-24">
-                        <span className="overline text-[14px] md:text-[17px]">Akt V — Plan Dnia</span>
-                        <h2 className="mt-6 font-serif italic text-5xl md:text-6xl lg:text-7xl text-ivory">
-                            Choreografia
-                            <br />
-                            <span className="text-champagne not-italic">
-                                naszej nocy
-                            </span>
-                        </h2>
-                        <div className="divider-luxe w-24 mx-auto mt-10" />
-                    </div>
-                </Reveal>
+                <ActHeader center className="mb-16 text-center md:mb-24">
+                    <span className="overline text-[14px] md:text-[17px]">
+                        Akt V — Plan Dnia
+                    </span>
+                    <h2 className="mt-6 font-serif italic text-5xl text-ivory md:text-6xl lg:text-7xl">
+                        Choreografia
+                        <br />
+                        <span className="text-champagne not-italic">
+                            naszej nocy
+                        </span>
+                    </h2>
+                    <div className="divider-luxe mx-auto mt-10 w-24" />
+                </ActHeader>
 
-                <div className="grid md:grid-cols-12 gap-8 md:gap-16">
-                    <div className="md:col-span-5">
+                <div className="grid gap-8 md:grid-cols-12 md:gap-16">
+                    <ScrollShift
+                        y={[60, -40]}
+                        x={[-40, 16]}
+                        className="md:col-span-5"
+                    >
                         <div
-                            className="space-y-1 max-h-[60vh] md:max-h-[70vh] overflow-y-auto no-scrollbar pr-2"
+                            className="no-scrollbar max-h-[60vh] space-y-1 overflow-y-auto pr-2 md:max-h-[70vh]"
                             data-testid="schedule-list"
                         >
                             {program.map((p, i) => (
-                                <button
+                                <ScrollShift
                                     key={p.time}
-                                    onClick={() => setActive(i)}
-                                    data-testid={`schedule-item-${i}`}
-                                    className={`group w-full text-left flex items-baseline gap-6 py-5 md:py-6 border-b border-white/5 transition-all ${
-                                        i === active
-                                            ? "text-ivory"
-                                            : "text-ivory/40 hover:text-ivory/80"
-                                    }`}
+                                    {...itemMotion(i)}
+                                    className="block"
                                 >
-                                    <span
-                                        className={`font-serif text-xl md:text-2xl tabular-nums tracking-tight ${
+                                    <button
+                                        onClick={() => setActive(i)}
+                                        data-testid={`schedule-item-${i}`}
+                                        className={`group flex w-full items-baseline gap-6 border-b border-white/5 py-5 text-left transition-all md:py-6 ${
                                             i === active
-                                                ? "text-champagne"
-                                                : ""
+                                                ? "text-ivory"
+                                                : "text-ivory/40 hover:text-ivory/80"
                                         }`}
                                     >
-                                        {p.time}
-                                    </span>
-                                    <span className="font-sans text-sm md:text-base uppercase tracking-[0.2em]">
-                                        {p.title}
-                                    </span>
-                                    <span
-                                        className={`ml-auto h-[1px] transition-all duration-700 ${
-                                            i === active
-                                                ? "w-12 bg-champagne"
-                                                : "w-4 bg-white/15 group-hover:w-8"
-                                        }`}
-                                    />
-                                </button>
+                                        <span
+                                            className={`font-serif text-xl tabular-nums tracking-tight md:text-2xl ${
+                                                i === active
+                                                    ? "text-champagne"
+                                                    : ""
+                                            }`}
+                                        >
+                                            {p.time}
+                                        </span>
+                                        <span className="font-sans text-sm uppercase tracking-[0.2em] md:text-base">
+                                            {p.title}
+                                        </span>
+                                        <span
+                                            className={`ml-auto h-[1px] transition-all duration-700 ${
+                                                i === active
+                                                    ? "w-12 bg-champagne"
+                                                    : "w-4 bg-white/15 group-hover:w-8"
+                                            }`}
+                                        />
+                                    </button>
+                                </ScrollShift>
                             ))}
                         </div>
-                    </div>
+                    </ScrollShift>
 
-                    <div className="md:col-span-7 md:sticky md:top-32 self-start">
+                    <ScrollShift
+                        {...actColRight}
+                        className="self-start md:col-span-7 md:sticky md:top-32"
+                    >
                         <div
-                            className="hairline p-10 md:p-14 lg:p-16 relative overflow-hidden"
+                            className="hairline relative overflow-hidden p-10 md:p-14 lg:p-16"
                             data-testid="schedule-detail"
                         >
                             <AnimatePresence mode="wait">
@@ -117,19 +134,19 @@ export default function Schedule() {
                                     <div className="overline mb-6">
                                         Punkt {active + 1} / {program.length}
                                     </div>
-                                    <div className="font-serif text-7xl md:text-8xl lg:text-9xl text-champagne leading-none mb-8">
+                                    <div className="mb-8 font-serif text-7xl leading-none text-champagne md:text-8xl lg:text-9xl">
                                         {cur.time}
                                     </div>
-                                    <h3 className="font-serif italic text-3xl md:text-4xl lg:text-5xl text-ivory mb-6">
+                                    <h3 className="mb-6 font-serif italic text-3xl text-ivory md:text-4xl lg:text-5xl">
                                         {cur.title}
                                     </h3>
-                                    <p className="text-ivory/60 text-base md:text-lg leading-relaxed max-w-lg">
+                                    <p className="max-w-lg text-base leading-relaxed text-ivory/60 md:text-lg">
                                         {cur.text}
                                     </p>
                                 </motion.div>
                             </AnimatePresence>
                         </div>
-                    </div>
+                    </ScrollShift>
                 </div>
             </div>
         </section>

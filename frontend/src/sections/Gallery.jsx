@@ -1,4 +1,10 @@
-import { Reveal } from "@/components/Reveal";
+import {
+    ActHeader,
+    ScrollShift,
+    actColLeft,
+    actColRight,
+    itemMotion,
+} from "@/components/ScrollMotion";
 
 const images = [
     {
@@ -33,48 +39,53 @@ export default function Gallery() {
         <section
             id="galeria"
             data-testid="gallery-section"
-            className="section-pad relative bg-ink"
+            className="section-pad relative overflow-hidden bg-ink"
         >
             <div className="container-luxe">
-                <Reveal>
-                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
-                        <div>
-                            <span className="overline text-[14px] md:text-[17px]">Akt VI — Galeria</span>
-                            <h2 className="mt-6 font-serif italic text-5xl md:text-6xl lg:text-7xl text-ivory">
-                                Kadry
-                                <br />
-                                <span className="text-champagne not-italic">
-                                    przed dniem
-                                </span>
-                            </h2>
-                        </div>
-                        <p className="text-ivory/55 text-sm md:text-base max-w-sm">
+                <div className="mb-16 flex flex-col justify-between gap-8 md:mb-24 md:flex-row md:items-end">
+                    <ScrollShift {...actColLeft} className="max-w-xl">
+                        <span className="overline text-[14px] md:text-[17px]">
+                            Akt VI — Galeria
+                        </span>
+                        <h2 className="mt-6 font-serif italic text-5xl text-ivory md:text-6xl lg:text-7xl">
+                            Kadry
+                            <br />
+                            <span className="text-champagne not-italic">
+                                przed dniem
+                            </span>
+                        </h2>
+                    </ScrollShift>
+                    <ScrollShift
+                        {...actColRight}
+                        className="max-w-sm md:pb-2"
+                    >
+                        <p className="text-sm text-ivory/55 md:text-base">
                             Sesja narzeczeńska — fragmenty czasu, które
-                                pozwoliliśmy sobie zatrzymać. Pełna galeria
-                                ślubna pojawi się tutaj po 19 lipca.
+                            pozwoliliśmy sobie zatrzymać. Pełna galeria
+                            ślubna pojawi się tutaj po 19 lipca.
                         </p>
-                    </div>
-                </Reveal>
+                    </ScrollShift>
+                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-5">
+                <div className="grid grid-cols-1 gap-3 md:grid-cols-12 md:gap-5">
                     {images.map((img, i) => (
-                        <Reveal
-                            key={i}
-                            delay={i}
-                            className={`relative overflow-hidden group ${img.cls}`}
+                        <ScrollShift
+                            key={img.cap}
+                            {...itemMotion(i)}
+                            className={`group relative overflow-hidden ${img.cls}`}
                         >
                             <img
                                 src={img.src}
                                 alt={img.cap}
-                                className="w-full h-full object-cover transition-transform duration-[1800ms] ease-out group-hover:scale-105"
+                                className="h-full w-full object-cover transition-transform duration-[1800ms] ease-out group-hover:scale-105"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-                            <div className="absolute bottom-5 left-5 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-2 group-hover:translate-y-0">
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+                            <div className="absolute bottom-5 left-5 translate-y-2 opacity-0 transition-all duration-700 group-hover:translate-y-0 group-hover:opacity-100">
                                 <span className="overline text-ivory">
                                     {img.cap}
                                 </span>
                             </div>
-                        </Reveal>
+                        </ScrollShift>
                     ))}
                 </div>
             </div>

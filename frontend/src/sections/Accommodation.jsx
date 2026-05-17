@@ -1,4 +1,8 @@
-import { Reveal } from "@/components/Reveal";
+import {
+    ActHeader,
+    ScrollShift,
+    itemMotion,
+} from "@/components/ScrollMotion";
 import { Building, Hotel, Trees } from "lucide-react";
 
 const places = [
@@ -33,47 +37,47 @@ export default function Accommodation() {
         <section
             id="nocleg"
             data-testid="accommodation-section"
-            className="section-pad relative bg-ink2"
+            className="section-pad relative overflow-hidden bg-ink2"
         >
             <div className="container-luxe">
-                <Reveal>
-                    <div className="text-center mb-16 md:mb-24">
-                        <span className="overline text-[14px] md:text-[17px]">Akt VII — Nocleg</span>
-                        <h2 className="mt-6 font-serif italic text-5xl md:text-6xl lg:text-7xl text-ivory">
-                            Gdzie złożyć
-                            <br />
-                            <span className="text-champagne not-italic">
-                                głowę o świcie
-                            </span>
-                        </h2>
-                        <div className="divider-luxe w-24 mx-auto mt-10" />
-                    </div>
-                </Reveal>
+                <ActHeader center className="mb-16 text-center md:mb-24">
+                    <span className="overline text-[14px] md:text-[17px]">
+                        Akt VII — Nocleg
+                    </span>
+                    <h2 className="mt-6 font-serif italic text-5xl text-ivory md:text-6xl lg:text-7xl">
+                        Gdzie złożyć
+                        <br />
+                        <span className="text-champagne not-italic">
+                            głowę o świcie
+                        </span>
+                    </h2>
+                    <div className="divider-luxe mx-auto mt-10 w-24" />
+                </ActHeader>
 
-                <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+                <div className="grid gap-5 md:grid-cols-3 md:gap-6">
                     {places.map((p, i) => {
                         const Icon = p.icon;
                         return (
-                            <Reveal
+                            <ScrollShift
                                 key={p.name}
-                                delay={i}
-                                className="group hairline p-8 md:p-10 hover:border-champagne/40 transition-all duration-700"
+                                {...itemMotion(i)}
+                                className="group hairline p-8 transition-all duration-700 hover:border-champagne/40 md:p-10"
                             >
                                 <Icon
                                     size={22}
-                                    className="text-champagne mb-8"
+                                    className="mb-8 text-champagne"
                                 />
                                 <div className="overline mb-2 text-ivory/50">
                                     {p.dist}
                                 </div>
-                                <h3 className="font-serif text-2xl md:text-3xl text-ivory leading-tight mb-4">
+                                <h3 className="mb-4 font-serif text-2xl leading-tight text-ivory md:text-3xl">
                                     {p.name}
                                 </h3>
-                                <p className="text-ivory/55 text-sm leading-relaxed mb-8 min-h-[80px]">
+                                <p className="mb-8 min-h-[80px] text-sm leading-relaxed text-ivory/55">
                                     {p.desc}
                                 </p>
                                 <div className="flex items-end justify-between">
-                                    <div className="font-serif italic text-champagne text-lg">
+                                    <div className="font-serif text-lg italic text-champagne">
                                         {p.price}
                                     </div>
                                     <a
@@ -81,13 +85,13 @@ export default function Accommodation() {
                                         target="_blank"
                                         rel="noreferrer"
                                         data-testid={`accommodation-link-${i}`}
-                                        className="text-[11px] uppercase tracking-[0.3em] text-ivory/70 hover:text-champagne transition-colors flex items-center gap-2"
+                                        className="flex items-center gap-2 text-[11px] uppercase tracking-[0.3em] text-ivory/70 transition-colors hover:text-champagne"
                                     >
                                         Rezerwacja
-                                        <span className="w-5 h-[1px] bg-current group-hover:w-8 transition-all duration-500" />
+                                        <span className="h-[1px] w-5 bg-current transition-all duration-500 group-hover:w-8" />
                                     </a>
                                 </div>
-                            </Reveal>
+                            </ScrollShift>
                         );
                     })}
                 </div>

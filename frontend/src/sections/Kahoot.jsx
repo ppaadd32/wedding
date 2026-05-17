@@ -1,5 +1,11 @@
-import { Reveal } from "@/components/Reveal";
 import { QRCodeSVG } from "qrcode.react";
+import {
+    ScrollLayer,
+    ScrollShift,
+    actColLeft,
+    actColRight,
+    itemMotion,
+} from "@/components/ScrollMotion";
 
 const KAHOOT_URL = "https://kahoot.it/?pin=000000";
 
@@ -8,97 +14,110 @@ export default function Kahoot() {
         <section
             id="kahoot"
             data-testid="kahoot-section"
-            className="section-pad relative bg-ink"
+            className="section-pad relative overflow-hidden bg-ink"
         >
             <div className="container-luxe">
-                <div className="grid md:grid-cols-12 gap-12 md:gap-20 items-center">
-                    <Reveal className="md:col-span-7">
-                        <span className="overline text-[14px] md:text-[17px]">Akt X — Niespodzianka</span>
-                        <h2 className="mt-6 font-serif italic text-5xl md:text-6xl lg:text-7xl text-ivory leading-[0.95]">
+                <div className="grid items-center gap-12 md:grid-cols-12 md:gap-20">
+                    <ScrollShift
+                        {...actColLeft}
+                        className="md:col-span-7"
+                    >
+                        <span className="overline text-[14px] md:text-[17px]">
+                            Akt X — Niespodzianka
+                        </span>
+                        <h2 className="mt-6 font-serif italic text-5xl leading-[0.95] text-ivory md:text-6xl lg:text-7xl">
                             Wedding
                             <br />
                             <span className="text-champagne not-italic">
                                 Kahoot
                             </span>
                         </h2>
-                        <div className="divider-luxe w-24 my-10" />
-                        <p className="text-ivory/65 text-base md:text-lg leading-relaxed max-w-xl">
+                        <div className="divider-luxe my-10 w-24" />
+                        <p className="max-w-xl text-base leading-relaxed text-ivory/65 md:text-lg">
                             Jak dobrze nas znacie? Zeskanuj kod, dołącz do
                             quizu i powalcz o tytuł{" "}
-                            <span className="text-champagne italic">
+                            <span className="italic text-champagne">
                                 Najlepszego Świadka Naszej Historii
                             </span>{" "}
                             — zwycięzca otrzyma butelkę z naszej winnicy.
                         </p>
 
-                        <div className="mt-12 grid grid-cols-3 gap-6 max-w-md">
-                            <div>
-                                <div className="font-serif text-4xl md:text-5xl text-champagne">
-                                    10
-                                </div>
-                                <div className="overline mt-2 text-ivory/50">
-                                    Pytań
-                                </div>
-                            </div>
-                            <div>
-                                <div className="font-serif text-4xl md:text-5xl text-champagne">
-                                    5'
-                                </div>
-                                <div className="overline mt-2 text-ivory/50">
-                                    Minut
-                                </div>
-                            </div>
-                            <div>
-                                <div className="font-serif text-4xl md:text-5xl text-champagne">
-                                    1
-                                </div>
-                                <div className="overline mt-2 text-ivory/50">
-                                    Zwycięzca
-                                </div>
-                            </div>
+                        <div className="mt-12 grid max-w-md grid-cols-3 gap-6">
+                            {[10, "5'", 1].map((val, i) => (
+                                <ScrollShift
+                                    key={i}
+                                    {...itemMotion(i)}
+                                    className="text-center"
+                                >
+                                    <div className="font-serif text-4xl text-champagne md:text-5xl">
+                                        {val}
+                                    </div>
+                                    <div className="overline mt-2 text-ivory/50">
+                                        {i === 0
+                                            ? "Pytań"
+                                            : i === 1
+                                              ? "Minut"
+                                              : "Zwycięzca"}
+                                    </div>
+                                </ScrollShift>
+                            ))}
                         </div>
 
-                        <a
-                            href={KAHOOT_URL}
-                            target="_blank"
-                            rel="noreferrer"
-                            data-testid="kahoot-link"
-                            className="group inline-flex items-center gap-3 mt-12 px-8 py-3.5 border border-champagne/70 text-champagne text-[11px] uppercase tracking-[0.4em] hover:bg-champagne hover:text-ink transition-all duration-700"
+                        <ScrollShift
+                            y={[40, -25]}
+                            x={[-20, 30]}
+                            className="mt-12 inline-block"
                         >
-                            <span>Otwórz quiz</span>
-                            <span className="w-6 h-[1px] bg-current group-hover:w-12 transition-all duration-500" />
-                        </a>
-                    </Reveal>
+                            <a
+                                href={KAHOOT_URL}
+                                target="_blank"
+                                rel="noreferrer"
+                                data-testid="kahoot-link"
+                                className="group inline-flex items-center gap-3 border border-champagne/70 px-8 py-3.5 text-[11px] uppercase tracking-[0.4em] text-champagne transition-all duration-700 hover:bg-champagne hover:text-ink"
+                            >
+                                <span>Otwórz quiz</span>
+                                <span className="h-[1px] w-6 bg-current transition-all duration-500 group-hover:w-12" />
+                            </a>
+                        </ScrollShift>
+                    </ScrollShift>
 
-                    <Reveal delay={1} className="md:col-span-5">
-                        <div className="relative hairline p-10 md:p-12 bg-ink2">
-                            <div className="absolute -top-3 left-8 px-4 bg-ink2 overline">
-                                Skanuj
-                            </div>
-                            <div className="bg-ivory p-6 md:p-8">
-                                <QRCodeSVG
-                                    value={KAHOOT_URL}
-                                    size={280}
-                                    fgColor="#0A0A0A"
-                                    bgColor="#F9F8F6"
-                                    level="M"
-                                    className="w-full h-auto"
-                                    data-testid="kahoot-qr"
-                                />
-                            </div>
-                            <div className="mt-8 text-center">
-                                <div className="overline text-ivory/50 mb-2">
-                                    Pin
+                    <ScrollShift
+                        {...actColRight}
+                        y={[100, -70]}
+                        scale={[0.88, 1]}
+                        rotate={[2, -2]}
+                        className="md:col-span-5"
+                    >
+                        <ScrollLayer speed={0.4}>
+                            <div className="relative hairline bg-ink2 p-10 md:p-12">
+                                <div className="absolute -top-3 left-8 bg-ink2 px-4 overline">
+                                    Skanuj
                                 </div>
-                                <div className="font-serif text-3xl md:text-4xl text-champagne tracking-[0.3em]">
-                                    000 000
+                                <div className="bg-ivory p-6 md:p-8">
+                                    <QRCodeSVG
+                                        value={KAHOOT_URL}
+                                        size={280}
+                                        fgColor="#0A0A0A"
+                                        bgColor="#F9F8F6"
+                                        level="M"
+                                        className="h-auto w-full"
+                                        data-testid="kahoot-qr"
+                                    />
                                 </div>
-                                <p className="text-ivory/40 text-xs mt-3">
-                                    Pin zostanie odsłonięty w dniu wesela.
-                                </p>
+                                <div className="mt-8 text-center">
+                                    <div className="overline mb-2 text-ivory/50">
+                                        Pin
+                                    </div>
+                                    <div className="font-serif text-3xl tracking-[0.3em] text-champagne md:text-4xl">
+                                        000 000
+                                    </div>
+                                    <p className="mt-3 text-xs text-ivory/40">
+                                        Pin zostanie odsłonięty w dniu wesela.
+                                    </p>
+                                </div>
                             </div>
-                        </div>
-                    </Reveal>
+                        </ScrollLayer>
+                    </ScrollShift>
                 </div>
             </div>
         </section>

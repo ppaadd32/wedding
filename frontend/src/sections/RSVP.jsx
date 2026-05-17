@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import { Reveal } from "@/components/Reveal";
+import { motion } from "framer-motion";
+import { StaggerReveal, staggerItem, premiumEase } from "@/components/Reveal";
+import { ScrollShift } from "@/components/ScrollMotion";
 import { toast } from "sonner";
 import { Loader2, Check } from "lucide-react";
 
@@ -15,6 +17,16 @@ const initial = {
     plus_one_name: "",
     dietary: "",
     message: "",
+};
+
+const successVariants = {
+    hidden: { opacity: 0, y: 40, scale: 0.98 },
+    show: {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        transition: { duration: 1.2, ease: premiumEase },
+    },
 };
 
 export default function RSVP() {
@@ -60,19 +72,54 @@ export default function RSVP() {
             data-testid="rsvp-section"
             className="section-pad relative bg-ink"
         >
-            <div className="container-luxe">
-                <div className="grid md:grid-cols-12 gap-10 md:gap-20">
-                    <Reveal className="md:col-span-5">
-                        <span className="overline text-[14px] md:text-[17px]">Akt VIII — RSVP</span>
-                        <h2 className="mt-6 font-serif italic text-5xl md:text-6xl lg:text-7xl text-ivory leading-[0.95]">
+            <motion.div
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true, amount: 0.1 }}
+                transition={{ duration: 1.4, ease: premiumEase }}
+                className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-ink2/50 to-transparent"
+            />
+
+            <motion.div
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 1.6, ease: premiumEase }}
+                className="absolute inset-x-6 top-0 h-px origin-center bg-gradient-to-r from-transparent via-champagne/25 to-transparent sm:inset-x-10 md:inset-x-16 lg:inset-x-24"
+            />
+
+            <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.08 }}
+                transition={{ duration: 1.3, ease: premiumEase }}
+                className="container-luxe"
+            >
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.12 }}
+                    transition={{ duration: 1.2, ease: premiumEase }}
+                    className="grid gap-10 md:grid-cols-12 md:gap-20"
+                >
+                    <ScrollShift
+                        y={[70, -50]}
+                        x={[-36, 24]}
+                        opacity={[0.2, 1, 1, 0.85]}
+                        className="md:col-span-5"
+                    >
+                        <span className="overline text-[14px] md:text-[17px]">
+                            Akt VIII — RSVP
+                        </span>
+                        <h2 className="mt-6 font-serif italic text-5xl leading-[0.95] text-ivory md:text-6xl lg:text-7xl">
                             Powiedz
                             <br />
                             <span className="text-champagne not-italic">
                                 {"\u201Ebędę\u201D"}
                             </span>
                         </h2>
-                        <div className="divider-luxe w-24 my-10" />
-                        <p className="text-ivory/65 text-base md:text-lg leading-relaxed max-w-md">
+                        <div className="divider-luxe my-10 w-24" />
+                        <p className="max-w-md text-base leading-relaxed text-ivory/65 md:text-lg">
                             Prosimy o potwierdzenie obecności do{" "}
                             <span className="text-champagne">
                                 10 czerwca 2026
@@ -80,24 +127,33 @@ export default function RSVP() {
                             . Wasze odpowiedzi pomogą nam dopiąć ostatni
                             detal — kolacji w Sali Lustrzanej.
                         </p>
-                    </Reveal>
+                    </ScrollShift>
 
-                    <Reveal delay={1} className="md:col-span-7">
+                    <ScrollShift
+                        y={[90, -60]}
+                        x={[40, -30]}
+                        scale={[0.94, 1]}
+                        opacity={[0.15, 1, 1, 0.9]}
+                        className="md:col-span-7"
+                    >
                         {done ? (
-                            <div
+                            <motion.div
+                                initial="hidden"
+                                animate="show"
+                                variants={successVariants}
                                 data-testid="rsvp-success"
-                                className="hairline p-10 md:p-16 text-center"
+                                className="hairline p-10 text-center md:p-16"
                             >
-                                <div className="w-16 h-16 mx-auto rounded-full border border-champagne/40 flex items-center justify-center mb-8">
+                                <div className="mx-auto mb-8 flex h-16 w-16 items-center justify-center rounded-full border border-champagne/40">
                                     <Check
                                         className="text-champagne"
                                         size={28}
                                     />
                                 </div>
-                                <h3 className="font-serif italic text-3xl md:text-4xl text-ivory mb-4">
+                                <h3 className="mb-4 font-serif italic text-3xl text-ivory md:text-4xl">
                                     Otrzymaliśmy Twoją odpowiedź
                                 </h3>
-                                <p className="text-ivory/60 max-w-md mx-auto">
+                                <p className="mx-auto max-w-md text-ivory/60">
                                     Z całego serca dziękujemy. Każde słowo
                                     od Was znaczy dla nas niezwykle dużo.
                                 </p>
@@ -107,18 +163,23 @@ export default function RSVP() {
                                         setDone(false);
                                     }}
                                     data-testid="rsvp-reset"
-                                    className="mt-10 text-[11px] uppercase tracking-[0.3em] text-champagne hover:text-ivory transition-colors"
+                                    className="mt-10 text-[11px] uppercase tracking-[0.3em] text-champagne transition-colors hover:text-ivory"
                                 >
                                     Zgłoś kolejną osobę
                                 </button>
-                            </div>
+                            </motion.div>
                         ) : (
-                            <form
-                                onSubmit={submit}
+                            <StaggerReveal
+                                as={motion.form}
+                                amount={0.12}
                                 className="space-y-10"
+                                onSubmit={submit}
                                 data-testid="rsvp-form"
                             >
-                                <div className="grid sm:grid-cols-2 gap-8">
+                                <motion.div
+                                    variants={staggerItem}
+                                    className="grid gap-8 sm:grid-cols-2"
+                                >
                                     <div>
                                         <label className={labelCls}>
                                             Imię i nazwisko
@@ -150,13 +211,13 @@ export default function RSVP() {
                                             placeholder="anna@example.com"
                                         />
                                     </div>
-                                </div>
+                                </motion.div>
 
-                                <div>
+                                <motion.div variants={staggerItem}>
                                     <label className={labelCls}>
                                         Czy będziesz z nami?
                                     </label>
-                                    <div className="grid grid-cols-2 gap-4 mt-1">
+                                    <div className="mt-1 grid grid-cols-2 gap-4">
                                         {[
                                             { v: "yes", l: "Tak, oczywiście" },
                                             { v: "no", l: "Niestety nie" },
@@ -168,9 +229,9 @@ export default function RSVP() {
                                                 onClick={() =>
                                                     set("attendance", o.v)
                                                 }
-                                                className={`px-5 py-4 border text-[11px] uppercase tracking-[0.3em] transition-all duration-500 ${
+                                                className={`border px-5 py-4 text-[11px] uppercase tracking-[0.3em] transition-all duration-500 ${
                                                     form.attendance === o.v
-                                                        ? "border-champagne text-ink bg-champagne"
+                                                        ? "border-champagne bg-champagne text-ink"
                                                         : "border-white/15 text-ivory/70 hover:border-champagne/50 hover:text-champagne"
                                                 }`}
                                             >
@@ -178,11 +239,14 @@ export default function RSVP() {
                                             </button>
                                         ))}
                                     </div>
-                                </div>
+                                </motion.div>
 
                                 {form.attendance === "yes" && (
                                     <>
-                                        <div className="grid sm:grid-cols-2 gap-8">
+                                        <motion.div
+                                            variants={staggerItem}
+                                            className="grid gap-8 sm:grid-cols-2"
+                                        >
                                             <div>
                                                 <label className={labelCls}>
                                                     Liczba osób
@@ -220,9 +284,9 @@ export default function RSVP() {
                                                     placeholder="Imię i nazwisko"
                                                 />
                                             </div>
-                                        </div>
+                                        </motion.div>
 
-                                        <div>
+                                        <motion.div variants={staggerItem}>
                                             <label className={labelCls}>
                                                 Dieta / Alergie
                                             </label>
@@ -239,11 +303,11 @@ export default function RSVP() {
                                                 className={inputCls}
                                                 placeholder="Wegańska, bezglutenowa..."
                                             />
-                                        </div>
+                                        </motion.div>
                                     </>
                                 )}
 
-                                <div>
+                                <motion.div variants={staggerItem}>
                                     <label className={labelCls}>
                                         Słowo do Pary Młodej
                                     </label>
@@ -257,14 +321,17 @@ export default function RSVP() {
                                         className={`${inputCls} resize-none`}
                                         placeholder="Opcjonalnie..."
                                     />
-                                </div>
+                                </motion.div>
 
-                                <div className="pt-4">
+                                <motion.div
+                                    variants={staggerItem}
+                                    className="pt-4"
+                                >
                                     <button
                                         type="submit"
                                         disabled={loading}
                                         data-testid="rsvp-submit"
-                                        className="group inline-flex items-center gap-3 px-10 py-4 border border-champagne text-champagne text-[11px] uppercase tracking-[0.4em] hover:bg-champagne hover:text-ink transition-all duration-700 disabled:opacity-50"
+                                        className="group inline-flex items-center gap-3 border border-champagne px-10 py-4 text-[11px] uppercase tracking-[0.4em] text-champagne transition-all duration-700 hover:bg-champagne hover:text-ink disabled:opacity-50"
                                     >
                                         {loading ? (
                                             <Loader2
@@ -272,17 +339,17 @@ export default function RSVP() {
                                                 className="animate-spin"
                                             />
                                         ) : (
-                                            <span className="w-2 h-2 bg-current rounded-full" />
+                                            <span className="h-2 w-2 rounded-full bg-current" />
                                         )}
                                         Wyślij potwierdzenie
-                                        <span className="w-6 h-[1px] bg-current group-hover:w-12 transition-all duration-500" />
+                                        <span className="h-[1px] w-6 bg-current transition-all duration-500 group-hover:w-12" />
                                     </button>
-                                </div>
-                            </form>
+                                </motion.div>
+                            </StaggerReveal>
                         )}
-                    </Reveal>
-                </div>
-            </div>
+                    </ScrollShift>
+                </motion.div>
+            </motion.div>
         </section>
     );
 }
