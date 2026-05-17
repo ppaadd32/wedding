@@ -39,7 +39,7 @@ export default function Gallery() {
                 <Reveal>
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16 md:mb-24">
                         <div>
-                            <span className="overline">Akt VI — Galeria</span>
+                            <span className="overline text-[14px] md:text-[17px]">Akt VI — Galeria</span>
                             <h2 className="mt-6 font-serif italic text-5xl md:text-6xl lg:text-7xl text-ivory">
                                 Kadry
                                 <br />

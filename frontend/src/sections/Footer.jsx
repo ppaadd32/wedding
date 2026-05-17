@@ -9,7 +9,7 @@ export default function Footer() {
             <div className="container-luxe">
                 <Reveal>
                     <div className="text-center">
-                        <div className="overline text-ivory/40 mb-8">
+                        <div className="overline text-ivory/40 mb-8 text-[14px] md:text-[17px]">
                             Finał
                         </div>
                         <h2 className="font-serif italic text-6xl sm:text-7xl md:text-8xl lg:text-[9rem] text-shimmer leading-[0.9] tracking-tightest">

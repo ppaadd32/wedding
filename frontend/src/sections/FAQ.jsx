@@ -31,7 +31,7 @@ const items = [
         q: "Czy mogę robić zdjęcia telefonem podczas ceremonii?",
         a: "Będzie nam bardzo miło, jeśli podczas ceremonii odłożycie telefony i przeżyjecie ten moment razem z nami. O wszystkie wspomnienia zadba nasz fotograf.",
     },
-    
+
 ];
 
 function Item({ q, a, idx }) {
@@ -73,7 +73,7 @@ export default function FAQ() {
             <div className="container-luxe">
                 <Reveal>
                     <div className="text-center mb-16 md:mb-24">
-                        <span className="overline">Akt IX — FAQ</span>
+                        <span className="overline text-[14px] md:text-[17px]">Akt IX — FAQ</span>
                         <h2 className="mt-6 font-serif italic text-5xl md:text-6xl lg:text-7xl text-ivory">
                             Pytania
                             <br />

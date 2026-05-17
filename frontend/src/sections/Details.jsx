@@ -60,7 +60,7 @@ export default function Details() {
             <div className="container-luxe">
                 <Reveal>
                     <div className="text-center mb-16 md:mb-24">
-                        <span className="overline">Akt IV — Detale</span>
+                        <span className="overline text-[14px] md:text-[17px]">Akt IV — Detale</span>
                         <h2 className="mt-6 font-serif italic text-5xl md:text-6xl lg:text-7xl text-ivory">
                             Dwa miejsca,
                             <br className="hidden sm:block" />
@@ -94,8 +94,7 @@ export default function Details() {
                 </div>
 
                 <Reveal delay={1}>
-                    <div className="mt-20 md:mt-32 grid sm:grid-cols-3 gap-6 md:gap-12 text-center">
-                        <div>
+<div className="mt-20 md:mt-32 grid sm:grid-cols-2 gap-6 md:gap-12 text-center max-w-4xl mx-auto">                        <div>
                             <Church
                                 className="mx-auto text-champagne mb-4"
                                 size={20}

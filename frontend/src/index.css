@@ -70,7 +70,7 @@
         @apply py-24 md:py-36 lg:py-48;
     }
     .overline {
-        @apply text-[11px] uppercase tracking-[0.4em] text-champagne font-medium;
+        @apply text-[13px] uppercase tracking-[0.5em] text-champagne font-medium;
     }
     .text-balance {
         text-wrap: balance;

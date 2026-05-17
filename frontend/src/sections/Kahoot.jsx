@@ -13,7 +13,7 @@ export default function Kahoot() {
             <div className="container-luxe">
                 <div className="grid md:grid-cols-12 gap-12 md:gap-20 items-center">
                     <Reveal className="md:col-span-7">
-                        <span className="overline">Akt X — Niespodzianka</span>
+                        <span className="overline text-[14px] md:text-[17px]">Akt X — Niespodzianka</span>
                         <h2 className="mt-6 font-serif italic text-5xl md:text-6xl lg:text-7xl text-ivory leading-[0.95]">
                             Wedding
                             <br />

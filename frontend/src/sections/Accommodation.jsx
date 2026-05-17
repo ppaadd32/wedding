@@ -38,7 +38,7 @@ export default function Accommodation() {
             <div className="container-luxe">
                 <Reveal>
                     <div className="text-center mb-16 md:mb-24">
-                        <span className="overline">Akt VII — Nocleg</span>
+                        <span className="overline text-[14px] md:text-[17px]">Akt VII — Nocleg</span>
                         <h2 className="mt-6 font-serif italic text-5xl md:text-6xl lg:text-7xl text-ivory">
                             Gdzie złożyć
                             <br />
